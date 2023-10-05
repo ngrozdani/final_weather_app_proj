@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState, useRef } from 'react'
-import EmailValidation from './EmailValidation'
+import EmailValidation from '../non_auth_pages/EmailValidation'
 import { useNavigate } from 'react-router-dom';
 import NonAuthCSS from './login_register.module.css'
 
@@ -15,7 +15,6 @@ function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("Reg Submit");
         if (EmailValidation(formValues)) {
             console.log(formValues);
             axios.post('http://localhost:8080/register', formValues)

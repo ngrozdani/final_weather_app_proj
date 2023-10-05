@@ -1,7 +1,7 @@
 import React from 'react'
-import Login from './Login'
-import Register from './Register'
-import Home from './Home'
+import Login from './non_auth_pages/Login'
+import Register from './non_auth_pages/Register'
+import Home from './auth_pages/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
