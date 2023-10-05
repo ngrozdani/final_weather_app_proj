@@ -1,0 +1,108 @@
+body {
+    background-color: #121212;
+
+}
+
+.App {
+    text-align: center;
+    background-color: #121212;
+    color: #fff;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.home_body label {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.home_body input[type="text"] {
+    font-size: 18px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.home_body button {
+    font-size: 18px;
+    padding: 5px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.home_body button:hover {
+    background-color: #0056b3;
+}
+
+.home_body p {
+    font-size: 18px;
+    color: #fff;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: inherit;
+}
+
+.dayCard {
+    background-color: #333;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.daySummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+.hourlyForecastContainer {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.hourlyForecast {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.hourlyForecastItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.hourlyForecastItem img {
+    margin-right: 10px;
+}
+
+.hourlyTemp {
+    display: flex;
+    align-items: center;
+}
+
+.hourlyTemp img {
+    margin-right: 10px;
+}

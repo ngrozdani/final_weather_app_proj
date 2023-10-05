@@ -1,8 +1,12 @@
 import React from 'react'
+import axios from 'axios'
 import { useState, useRef } from 'react'
 import EmailValidation from './EmailValidation'
+import { useNavigate } from 'react-router-dom';
+import NonAuthCSS from './login_register.module.css'
 
 function Login() {
+    const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -11,16 +15,27 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (EmailValidation(formValues)) {
-            // make POST request here
             console.log(formValues);
+            axios.post('http://localhost:8080/login', formValues)
+                .then(response => {
+                    if (response.status === 200) {
+                        resetForm();
+                        navigate('/home');
+                    } else {
+                        // Handle the case where the response status is not 200
+                        // You can log an error message or perform other actions here
+                        console.error('Login was not successful. Status code:', response.status);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                });
             resetForm();
-        } else {
-            // stay on same page
         }
     }
 
     const handleInput = (event) => {
-        setFormValues(prev => ({ ...prev, [event.target.name]: [event.target.value] }))
+        setFormValues(prev => ({ ...prev, [event.target.name]: event.target.value }))
     }
 
     const formRef = useRef(null);
@@ -32,46 +47,46 @@ function Login() {
     };
 
     return (
-        <main className="center">
-            <div className="container">
-                <div className="text">
+        <div className={NonAuthCSS.center}>
+            <div className={NonAuthCSS.container}>
+                <div className={NonAuthCSS.text}>
                     Weather App Login
                 </div>
 
                 <form action="/login" method="post" ref={formRef} onSubmit={handleSubmit}>
-                    <div className="data" id="email-container">
+                    <div className={NonAuthCSS.data} id="email-container">
                         <label htmlFor="email">Email</label>
                         <input id="email" name="email" type="email" onChange={handleInput} required />
                     </div>
-                    <div className="data">
+                    <div className={NonAuthCSS.data}>
                         <label htmlFor="password">Password</label>
                         <input id="password" name="password" type="password" onChange={handleInput} required />
                     </div>
-                    <div className="forgot-pass">
+                    <div className={NonAuthCSS.forgot_pass}>
                         {/* <a >Forgot Password?</a> */}
                     </div>
-                    <div className="btn">
+                    <div className={NonAuthCSS.btn}>
                         <button id="submitbutton" type="submit">login</button>
                     </div>
                 </form>
 
-                <div className="container-two">
-                    <div className="img-container">
-                        <img className="test-img"
+                <div className={NonAuthCSS.container_two}>
+                    <div className={NonAuthCSS.img_container}>
+                        <img className={NonAuthCSS.test_img}
                             src="https://cdn.icon-icons.com/icons2/2157/PNG/512/github_git_hub_logo_icon_132878.png"
                             alt="github logo" />
                     </div>
                     <form action="/auth/github" method="get">
-                        <button id="github-button" type="submit">login via
+                        <button id={NonAuthCSS.github_button} type="submit">login via
                             Github</button>
                     </form>
                 </div>
 
-                <div className="signup-link">
+                <div className={NonAuthCSS.signup_link}>
                     <p> Not a member? </p> <a href="/register"> Signup now</a>
                 </div>
             </div>
-        </main>
+        </div>
     )
 }
 

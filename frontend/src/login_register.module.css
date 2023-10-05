@@ -6,12 +6,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #90eeaa;
-    /* background-image: linear-gradient(to right, #3498db, #0077b6); */
-
-}
-
 .container {
     position: absolute;
     top: 50%;
@@ -67,23 +61,22 @@ form .data input:focus {
     border-bottom-width: 2px;
 }
 
-form .forgot-pass {
+form .forgot_pass {
     margin-top: -8px;
 }
 
-form .forgot-pass a {
+form .forgot_pass a {
     color: #256c9b;
     text-decoration: none;
 }
 
-form .forgot-pass a:hover {
+form .forgot_pass a:hover {
     text-decoration: underline;
 }
 
 form .btn {
     margin: 30px 0;
     height: 45px;
-    width: 100%;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -97,6 +90,7 @@ form .btn:hover {
 
 form .btn button {
     height: 100%;
+    width: 100%;
     background: none;
     border: none;
     color: #fff;
@@ -115,7 +109,7 @@ form .btn button {
     padding: 8px 13px 6px;
 }
 
-.signup-link {
+.signup_link {
     margin-top: 15px;
     display: flex;
     flex-direction: row;
@@ -123,24 +117,24 @@ form .btn button {
     justify-content: flex-end;
 }
 
-.signup-link a {
+.signup_link a {
     color: #256c9b;
     text-decoration: none;
     margin-left: 5px;
 }
 
-.signup-link a:hover {
+.signup_link a:hover {
     text-decoration: underline;
 }
 
-.test-img {
+.test_img {
     width: 55px;
     height: 55px;
     aspect-ratio: auto 569 / 569;
     /* height: 40px; */
 }
 
-#github-button {
+#github_button {
     background: rgb(144, 66, 222);
     font-size: 18px;
     font-weight: 500;
@@ -153,7 +147,7 @@ form .btn button {
     height: 45px;
 }
 
-#github-button:hover {
+#github_button:hover {
     background: rgb(192, 108, 240);
 }
 
@@ -173,7 +167,7 @@ form .btn button {
 
 } */
 
-.container-two {
+.container_two {
     margin-top: -20px;
     width: 100%;
     height: 75px;
