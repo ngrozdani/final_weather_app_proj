@@ -21,16 +21,14 @@ function Login() {
                     if (response.status === 200) {
                         resetForm();
                         navigate('/home');
-                    } else {
-                        // Handle the case where the response status is not 200
-                        // You can log an error message or perform other actions here
-                        console.error('Login was not successful. Status code:', response.status);
                     }
                 })
-                .catch(err => {
-                    console.log(err);
+                .catch(error => {
+                    if (error.response.status === 404) {
+                        alert("Incorrect username or password");
+                        console.error('Login was not successful. Status code:', error.response.status);
+                    }
                 });
-            resetForm();
         }
     }
 

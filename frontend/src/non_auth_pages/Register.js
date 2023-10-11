@@ -17,19 +17,21 @@ function Register() {
         event.preventDefault();
         if (EmailValidation(formValues)) {
             console.log(formValues);
+            console.log("called right here…");
             axios.post('http://localhost:8080/register', formValues)
                 .then(response => {
                     if (response.status === 200) {
+                        console.log("reaches login");
                         resetForm();
                         navigate('/login');
-                    } else {
-                        // Handle the case where the response status is not 200
-                        // You can log an error message or perform other actions here
-                        console.error('Signup was not successful. Status code:', response.status);
                     }
                 })
-                .catch(err => {
-                    console.log(err);
+                .catch(error => {
+                    if (error.response.status === 404) {
+                        resetForm();
+                        alert("Account with email entered is already registered! Please use a different email address.");
+                        console.error('Signup was not successful. Status code:', error.response.status);
+                    }
                 });
         }
     }
